@@ -50,11 +50,21 @@ export class AppComponent {
 
 
   addOrder() {
+    const order =
+        {
+          id: 4,
+          listProduct: [{name: 'Брюки', brand: 'H&M', count: 1},
+            {name: 'Кроссовки для бега', brand: 'Adidas', count: 1},
+            {name: 'Кепка серая', brand: 'Noname', count: 1},
+            {name: 'Бейсболка серая', brand: 'Noname', count: 1},
+          ], price: 4050
+        };
+    this.orders.push(order)
   }
 
 
-  removeOrder(id:number) {
+  removeOrder(id: number) {
     console.log("Id", id)
-   this.orders= this.orders.filter(value=> value.id !== id)
+    this.orders = this.orders.filter(value => value.id !== id)
   }
 }

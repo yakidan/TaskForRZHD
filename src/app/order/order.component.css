@@ -22,6 +22,8 @@ button{
 }
 button:hover {
   box-shadow: none;
-
+}
+.order-price{
+  text-align: center;
 }
 
