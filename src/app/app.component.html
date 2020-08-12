@@ -53,11 +53,10 @@
     <div class="col-5">
     </div>
     <div class="col-5">
-      <button class="btn btn-outline-dark btn-plus"
-              (click)="addOrder()"
-      >
-        Добавить Заказ
-      </button>
+      <app-add-order  (onChange)="addOrder($event)" ></app-add-order>
     </div>
   </div>
+
+
+
 </div>

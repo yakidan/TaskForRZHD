@@ -1,0 +1,54 @@
+<button class="btn btn-primary btn-add" (click)="openModal('custom-modal-1')">
+  Добавить заказ
+</button>
+<jw-modal id="custom-modal-1">
+  <div *ngFor="let product of listProducts">
+    <hr>
+    <div class="row align-content-center">
+      <div class="col-4 .order ">
+        <label for="name">Название товара</label>
+        <input type="text" name="name" id="name" value="{{product.name}}" [(ngModel)]="product.name">
+      </div>
+      <div class="col-3 .order">
+        <label for="brand">Бренд</label>
+        <input type="text" name="brand" id="brand" value="{{product.brand}}" [(ngModel)]="product.brand">
+      </div>
+
+      <div class="col-2 .order">
+        <label for="count">Количество</label>
+        <input type="number" name="count" id="count" value="{{product.count}}" [(ngModel)]="product.count">
+      </div>
+      <div class="col-2 .order">
+        <label for="price">Цена</label>
+        <input  type="number" name="price" id="price" value="{{product.price}}" [(ngModel)]="product.price">
+      </div>
+      <div class="col-1 .order">
+        <button class="btn-delete" (click)="deleteProduct(product)" >
+          <svg   width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+            <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="row align-content-center justify-content-center ">
+    <div class="col-12">
+      <div class="row align-content-center justify-content-center">
+        <div class="col-3">
+          <button class="btn btn-danger btn-add" (click)="addProduct()">Добавить продукт
+          </button>
+        </div>
+      </div>
+
+      <div class="row align-content-center justify-content-center">
+        <div class="col-3">
+          <button class="btn btn-danger btn-add-order" (click)="closeModal('custom-modal-1');">Добавить заказ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
