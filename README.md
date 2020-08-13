@@ -2,13 +2,13 @@
 
  Empty orders table 
 -----------------------------------
-##Preview
+## Preview
 ![alt text](./src/picture-for-readme/1.png)
 
-##Modal window
+## Modal window
 ![alt text](./src/picture-for-readme/2.png)
 
-###Functional
+### Functional
 * Add order
 * Delete order
 * Edit order
