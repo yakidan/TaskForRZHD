@@ -11,11 +11,13 @@
 }
 input, label{
   display:block;
-  width: 85%;
+  width: auto;
+
 }
+
 .btn-delete{
   width: 40px;
-  height: 40px;
+  height: auto;
   margin: 3px;
   font-size: 20px;
   border: none;
@@ -34,3 +36,4 @@ input, label{
   background-color: transparent;
 
 }
+

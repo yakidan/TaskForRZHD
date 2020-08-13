@@ -1,5 +1,5 @@
 .order{
-  margin-right: 5px ;
+  margin-right: 1% ;
 }
 
 .btn-add{
@@ -12,6 +12,7 @@ margin-top: 5px;
 input, label{
   display:block;
   width: 85%;
+  font-size: 1rem;
 }
 .btn-delete{
   width: 40px;

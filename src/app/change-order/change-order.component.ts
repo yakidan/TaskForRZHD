@@ -14,11 +14,7 @@ export class ChangeOrderComponent implements OnInit {
   @Input() lastId: number
   @Output() onChangeOrder = new EventEmitter()
 
-  // @Input() onOpenWindowChange
-
-
-  constructor(public modalService: ModalService) {
-  }
+  constructor(public modalService: ModalService) {}
 
   product: Product = {
     name: "Кроссовки",
@@ -28,15 +24,11 @@ export class ChangeOrderComponent implements OnInit {
     id: 1
   }
 
-
   ngOnInit(): void {
   }
 
   deleteProduct(product: Product) {
-    console.log("Delete product of list", this.listProducts)
     this.listProducts = this.listProducts.filter(value => value.id !== product.id)
-    console.log("Delete product", product)
-
   }
 
   addProduct() {
@@ -46,7 +38,6 @@ export class ChangeOrderComponent implements OnInit {
       count: this.product.count,
       price: this.product.price,
       id: ++this.lastId,
-
     }
 
     this.listProducts.push(product)

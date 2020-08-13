@@ -10,7 +10,6 @@
         <div class="row">
           <div class="col-5">
             <p>{{product.name}}</p>
-
           </div>
           <div class="col-5">
             <p>{{product.brand}}</p>
@@ -19,11 +18,9 @@
             <p>{{product.count}} </p>
           </div>
         </div>
-
       </li>
     </ul>
   </div>
-
 
   <div class="col-2 order-price">
     <strong>{{order.price + ' ₽'}} </strong>
@@ -31,9 +28,9 @@
   <div class="col-2">
     <div class="row">
       <div class="col-4 ">
-
         <app-change-order [lastId]="order.listProduct.length" [order]="order"
-                          [listProducts]="order.listProduct" (onChangeOrder)="onChangeOrder($event)"></app-change-order>
+                          [listProducts]="order.listProduct" (onChangeOrder)="onChangeOrder($event)">
+        </app-change-order>
       </div>
       <div class="col-8 ">
         <button type="button" (click)="removeOrder()">
@@ -48,6 +45,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

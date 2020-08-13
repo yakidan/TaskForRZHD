@@ -1,15 +1,14 @@
-.post{
-
-
+.post {
+  border-bottom: 1px solid #666;
+  background-color: #fff;
   margin: 5px;
-  /*background: #a9fdff*/
-  border-bottom:1px solid #666;
-background-color:#fff;
 }
+
 ul {
   margin-top: 10px;
 }
-button{
+
+button {
   width: 45px;
   height: 45px;
   margin: 3px;
@@ -18,12 +17,13 @@ button{
   border-radius: 5px;
   cursor: pointer;
   background-color: transparent;
-
 }
+
 button:hover {
   box-shadow: none;
 }
-.order-price{
+
+.order-price {
   text-align: center;
 }
 

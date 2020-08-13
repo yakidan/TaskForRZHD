@@ -1,15 +1,12 @@
 import {Component, DoCheck, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ModalService} from "../_modal";
 import {calculatePrice, Order, Product} from "../app.component";
-import {AddOrderService} from './add-order.service'
-
-
 
 @Component({
   selector: 'app-add-order',
   templateUrl: './add-order.component.html',
   styleUrls: ['./add-order.component.css'],
-  providers: [AddOrderService]
+
 })
 export class AddOrderComponent implements OnInit {
 
@@ -24,30 +21,20 @@ export class AddOrderComponent implements OnInit {
   }
   lastId: number = 1;
   order: Order;
-
   listProducts:
     Product[] = []
 
-  constructor(private modalService: ModalService) {
-
-  }
+  constructor(private modalService: ModalService) {}
 
   ngOnInit(): void {
-
     this.listProducts.push(this.product)
   }
 
   openModal(id: string) {
-    console.log('Length of Emitter on Open ', this.onChange.length)
-
     this.modalService.open(id);
-
   }
 
   closeModal(id: string) {
-
-    console.log('Length of Emitter on Close ', this.onChange.length)
-    console.log(this.listProducts)
     this.order = {
       id: 1,
       listProduct: this.listProducts,
@@ -57,6 +44,7 @@ export class AddOrderComponent implements OnInit {
     order.id = this.order.id;
     order.listProduct = this.order.listProduct.slice();
     order.price = this.order.price;
+
     calculatePrice([order])
     this.listProducts = [];
     this.listProducts.push({
@@ -69,7 +57,6 @@ export class AddOrderComponent implements OnInit {
     })
     this.onChange.emit(order)
     this.modalService.close(id);
-
   }
 
   addProduct() {
@@ -80,13 +67,11 @@ export class AddOrderComponent implements OnInit {
       price: this.product.price,
       id: ++this.lastId,
     }
-
     this.listProducts.push(product)
   }
 
   deleteProduct(product) {
     this.listProducts = this.listProducts.filter(value => value.id !== product.id)
-    console.log("Delete product", product)
   }
 
 }
