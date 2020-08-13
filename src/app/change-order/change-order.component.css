@@ -1,0 +1,36 @@
+.order{
+  margin-right: 5px ;
+}
+
+.btn-add{
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.btn-add-order{
+  margin-left: 9px;
+}
+input, label{
+  display:block;
+  width: 85%;
+}
+.btn-delete{
+  width: 40px;
+  height: 40px;
+  margin: 3px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.btn-icon{
+  width: 45px;
+  height: 45px;
+  margin: 3px;
+  font-size: 17px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+
+}

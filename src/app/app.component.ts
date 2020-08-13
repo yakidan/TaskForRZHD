@@ -7,12 +7,33 @@ export class Product {
   brand: string
   count: number
   price: number
+  id: number
+
+  constructor() {
+  }
 }
 
 export class Order {
   id: number
   listProduct: Array<Product>
   price: number
+
+  // constructor(id:number, listProduct, price) {
+  //   this.id = id;
+  //   this.listProduct = listProduct;
+  //   this.price = price;
+  // }
+}
+
+export function calculatePrice(orders: Order[]) {
+  orders.forEach((order) => {
+    const price = order.listProduct.reduce((value, curProduct) => {
+      return value += curProduct.price * curProduct.count;
+    }, 0)
+    order.price = price;
+  })
+
+
 }
 
 @Component({
@@ -28,7 +49,8 @@ export class AppComponent implements OnInit, OnChanges, DoCheck {
   @Input('newOrder') newOrder: Order
 
   ngOnInit() {
-    this.bodyText = 'This text can be updated in modal 1';
+
+    calculatePrice(this.orders)
     console.log('New Order:', this.newOrder)
 
   }
@@ -38,31 +60,31 @@ export class AppComponent implements OnInit, OnChanges, DoCheck {
     this.orders = [
       {
         id: 1,
-        listProduct: [{name: 'Куртка Черная', brand: 'adidas', count: 1, price: 10000},
-          {name: 'Носки разноцветные ', brand: 'Nike', count: 3, price: 200}],
-        price: 10200
+        listProduct: [{name: 'Куртка Черная', brand: 'adidas', count: 1, price: 10000, id: 1},
+          {name: 'Носки разноцветные ', brand: 'Nike', count: 3, price: 200, id: 2}],
+        price: 1
       },
       {
         id: 2,
-        listProduct: [{name: 'Футболка черная', brand: 'Puma', count: 2, price: 100},
-          {name: 'Шорты красные', brand: 'Noname', count: 1, price: 1200},
-          {name: 'Лонглслив красно-черный', brand: 'Road to the Dream', count: 1, price: 1500},
+        listProduct: [{name: 'Футболка черная', brand: 'Puma', count: 2, price: 100, id: 1},
+          {name: 'Шорты красные', brand: 'Noname', count: 1, price: 1200, id: 2},
+          {name: 'Лонглслив красно-черный', brand: 'Road to the Dream', count: 1, price: 1500, id: 3},
         ],
-        price: 2800
+        price: 2
       },
       {
         id: 3,
-        listProduct: [{name: 'Брюки зауженные', brand: 'H&M', count: 1, price: 2000},
-          {name: 'Кроссовки для бега', brand: 'Adidas', count: 1, price: 3000},
-          {name: 'Кепка серая', brand: 'Noname', count: 1, price: 500},
-        ], price: 5500
+        listProduct: [{name: 'Брюки зауженные', brand: 'H&M', count: 1, price: 2000,id: 1},
+          {name: 'Кроссовки для бега', brand: 'Adidas', count: 1, price: 3000,id: 2},
+          {name: 'Кепка серая', brand: 'Noname', count: 1, price: 500,id: 3},
+        ], price: 3
       },
     ]
   }
 
 
   addOrder(order) {
-    if (order.listProduct.length !==0) {
+    if (order.listProduct.length !== 0) {
       order.id = ++this.lastId
       this.orders.push(order)
     }
@@ -84,7 +106,4 @@ export class AppComponent implements OnInit, OnChanges, DoCheck {
   }
 
 
-  orderAdd(order) {
-
-  }
 }
